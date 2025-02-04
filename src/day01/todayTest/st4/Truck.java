@@ -11,19 +11,24 @@ public class Truck extends Wheeler {
 
     @Override
     public void speedUp(int speed) {
-        if(velocity > 100){
-            velocity = velocity - 100;
+        int v = speed*5;
+        velocity += v;
+        if(velocity>100) {
+            velocity = 100;
         }
-        velocity += (speed * 5);
+        System.out.println(carName +"의 현재 속도는 "+ velocity+"입니다.");
     }
 
     @Override
     public void speedDown(int speed) {
-        if (velocity < 50){
-            velocity = velocity + 50;
-            System.out.println(super.carName + "의 최저속도위반으로 속도를 "+  speed + "으로 올립니다.");
+        int v = speed*5;
+        velocity -=v;
+        if(velocity<50) {
+            velocity = 50;
+            System.out.println(carName+ "최저속도위반으로 속도를 "+ velocity+"으로 올립니다.");
+        } else {
+            System.out.println(carName +"의 현재 속도는 "+ velocity+"입니다.");
         }
-        velocity = velocity - (speed * 5);
     }
 
     public int getVelocity() {

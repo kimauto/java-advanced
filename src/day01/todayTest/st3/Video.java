@@ -6,7 +6,6 @@ public class Video extends Content {
     public Video(String title, String genre) {
         super(title);
         this.genre = genre;
-        totalPrice();
     }
 
 

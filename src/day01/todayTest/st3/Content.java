@@ -13,12 +13,11 @@ public abstract class Content {
 
     public abstract void totalPrice();
 
-    public void show(){
+    public void show() {
         System.out.println(this.title + "비디오의 가격은 " + this.price + "입니다.");
     }
 
-    public String getTitle() {
-        return title;
+    public String getTitle() {return title;
     }
 
     public void setTitle(String title) {
