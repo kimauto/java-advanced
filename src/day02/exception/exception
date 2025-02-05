@@ -26,27 +26,43 @@ try - catch - finally
 
 생성자 내부 나 메소드 내부에서 작성된다.
 
-try {
-    .......
-    문제발생
-      } catch(Exception e) {
-          e.printStackTrace();
-
-  }
-
-  try {
-      .......
-      문제발생
-        } catch(Exception e) {
-            e.printStackTrace();
-
-    }finally {
-         항상 실행 (필수는 아님)
-    }
 
 
 4.리소스는 자동 닫기
 리소스 ->데이터를 제공하는 객체
 리소스는 사용하기 위해 열어야하고 사용이 끝난 다음에는 닫아야 한다.
+
+
+5.예외 발생 시키기
+방법1: 메소드 내부에서 예외가 발생할 떄 tyy-catch 블럭으로 예외를 처리한다
+방법2: 메소드를 호출한 곳으로 예외를 떠넘길 수도 있다.
+
+public void medthod1(){
+     try{
+        method2();
+     } catch (ClassNotFoundException e) {
+
+     }
+}
+
+public void method2() throws ClassNotFoundException{
+     Class.forName("java.lang.String2");
+}
+
+사용자 정의 예외
+컴파일러가 체크하는 일반 예외로 선언할 수 도 있고, 컴파일러가 체크하지 못하는 실행 예외도 정의하여 사용할 수 있다.
+일반예외인 경우는 Exception 클래스의 자식클래스로 선언하고
+실행예외인 경우는 RuntimeException 의 자식 클래스로 선언한다.
+
+public class XXXException  extedns Exception | RuntimException {
+
+   public XXXException() {}
+   public XXXException(String message) {
+      super(message);
+   }
+}
+
+
+
 
 
