@@ -9,6 +9,14 @@ public interface RemoteControl {
      void  tunOff();
 
      void setVolume(int volume);
+
+
+
+     //배터리 교체 기능을 정적 메소드를 통해서 구현
+
+     public static void changeBattery(){
+          System.out.println("건전지를 교체합니다.");
+     }
 }
 
 

@@ -1,6 +1,6 @@
-package day01.ex01;
+package day01.ex01.ex02;
 
-public class KumhoTire extends Tire {
+public class KumhoTire implements Tire {
 
     @Override
     public void roll() {

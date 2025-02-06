@@ -1,8 +1,6 @@
 package day01.ex03;
 
-public class Vehicle {
+public interface Vehicle {
 
-    public void run(){
-        System.out.println("차량이 달립니다.");
-    }
+    public void run();
 }

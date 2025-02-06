@@ -2,7 +2,7 @@ package day01.ex03;
 
 import java.sql.SQLOutput;
 
-public class Bus extends Vehicle {
+public class Bus implements Vehicle {
 
 
     @Override

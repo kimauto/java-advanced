@@ -1,6 +1,6 @@
 package day01.ex03;
 
-public class Taxi extends Vehicle{
+public class Taxi implements Vehicle{
 
     @Override
     public void run() {
