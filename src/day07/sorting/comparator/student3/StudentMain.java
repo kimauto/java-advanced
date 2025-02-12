@@ -1,6 +1,8 @@
 package day07.sorting.comparator.student3;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class StudentMain {
@@ -23,24 +25,24 @@ public class StudentMain {
         students.add(조덕규);
 
 
-//        Collections.sort(students, Comparator.comparing(Student::getSno)); //학번으로 정렬
-//        for (Student student : students) {
-//            System.out.print("이름 : " + student.getName() + " 학번 : " + student.getSno());
-//            System.out.printf(" 총점 : %d 평균 : %.2f\n", student.getTotal(), student.getAverage());
-//        }
-//        System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+        Collections.sort(students); //학번으로 정렬
+        for (Student student : students) {
+            System.out.print("이름 : " + student.getName() + " 학번 : " + student.getSno());
+            System.out.printf(" 총점 : %d 평균 : %.2f\n", student.getTotal(), student.getAverage());
+        }
+        System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
 
-//        Collections.sort(students, Comparator.comparing(Student::getTotal).thenComparing(Student::getSno)); //학번 이름 정렬
-//        for (Student student : students) {
-//            System.out.print("이름 : " + student.getName() + " 학번 : " + student.getSno());
-//            System.out.printf(" 총점 : %d 평균 : %.2f\n", student.getTotal(), student.getAverage());
-//        }
-//
-//        System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"); // 내림차순
-//        Collections.sort(students, Comparator.comparing(Student::getTotal).reversed());
-//        for (Student student : students) {
-//            System.out.print("이름 : " + student.getName() + " 학번 : " + student.getSno());
-//            System.out.printf(" 총점 : %d 평균 : %.2f\n", student.getTotal(), student.getAverage());
-//        }
+        Collections.sort(students, Comparator.comparing(Student::getTotal).thenComparing(Student::getSno)); //학번 이름 정렬
+        for (Student student : students) {
+            System.out.print("이름 : " + student.getName() + " 학번 : " + student.getSno());
+            System.out.printf(" 총점 : %d 평균 : %.2f\n", student.getTotal(), student.getAverage());
+        }
+
+        System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"); // 내림차순
+        Collections.sort(students, Comparator.comparing(Student::getTotal).reversed());
+        for (Student student : students) {
+            System.out.print("이름 : " + student.getName() + " 학번 : " + student.getSno());
+            System.out.printf(" 총점 : %d 평균 : %.2f\n", student.getTotal(), student.getAverage());
+        }
     }
 }
