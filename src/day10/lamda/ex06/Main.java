@@ -7,6 +7,7 @@ public class Main {
         Person person = new Person();
 
         person.getMember1(Member::new);
+        //peson.getMember1((id)-> new member(id))
         person.getMember2(Member::new);
     }
 }

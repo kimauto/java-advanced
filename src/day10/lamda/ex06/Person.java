@@ -8,7 +8,7 @@ public class Person {
             return member;
         }
 
-    public  Member getMember2(Creatable2 creatable2){
+    public Member getMember2(Creatable2 creatable2) {
         String id = "ssg2";
         String name = "신세계";
         Member member = creatable2.create(id, name);
