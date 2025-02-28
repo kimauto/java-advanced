@@ -1,10 +1,11 @@
 package jdbc.users;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
-public class UserInsert {
+public class Userupdate {
     public static void main(String[] args) {
 
         Connection connection = null;
@@ -18,38 +19,27 @@ public class UserInsert {
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ssgdb?serverTimezone=Asia/Seoul","ssg","ssg1234");
             System.out.println("connection ok" + connection);
 
-            String query = "" +
-                    "INSERT INTO users (userid, username, userpassword, userage, useremail) " +
-                    "VALUES (?,?,?,?,?); ";
+//            // 3. 매개변수화된 SQL문을 작성
+//               String query =  "" +
+//                                "UPDATE users SET userpassword = ? where userid = ?";
+//               PreparedStatement pstmt = connection.prepareStatement(query);
+//               pstmt.setString(1, "1235");
+//               pstmt.setString(1, "mycaptain622");
+
+            String query = new StringBuilder()
+                    .append("UPDATE users SET ")
+                    .append(" userpassword = ?")
+                    .append(" where userid = ?").toString();
 
             PreparedStatement pstmt = connection.prepareStatement(query);
-            pstmt.setString(1, "mycaptain622");
-            pstmt.setString(2, "서유미");
-            pstmt.setString(3, "1234");
-            pstmt.setInt(4, 30);
-            pstmt.setString(5, "mycaptain622@gmail.com");
+               pstmt.setString(1, "1235");
+               pstmt.setString(2, "mycaptain622");
 
-            //4. SQL문 실행
-            int rows =  pstmt.executeUpdate();
-            System.out.println(rows + " rows inserted");
-            try {
-                pstmt.setBlob(5, new FileInputStream("src/jdbc/imges/spring.jpg"));
-            } catch (FileNotFoundException e) {
-                throw new RuntimeException(e);
-            }
 
-                 //4. SQL 문을 실행
+               //4. SQL 문을 실행
                 int rows = pstmt.executeUpdate(); //몇개의 행이 실패 성공햇냐?
-                if (rows ==1){
-                    ResultSet rs = pstmt.getGeneratedKeys();
-                    if (rs.next()){
-                        int bno = rs.getInt(1);
-                        System.out.println(bno);
-                    }
-                    rs.close();
-                }
 
-                 System.out.println(rows + " rows inserted");
+                 System.out.println(rows + " rows update completed");
                  // 5. PreparedStatement 객체 닫기
                  pstmt.close();
 
